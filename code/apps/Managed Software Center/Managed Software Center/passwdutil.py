@@ -4,13 +4,13 @@
 #  Managed Software Center
 #
 #  Created by Greg Neagle on 4/18/17.
-#  Copyright (c) 2017 The Munki Project. All rights reserved.
+#  Copyright (c) 2018 The Munki Project. All rights reserved.
 #
 '''Code to interact with the OpenDirectory framework'''
 
 
 import OpenDirectory as OD
-
+from Foundation import NSLog
 
 def findODuserRecords(username, nodename='/Search'):
     '''Uses OpenDirectory methods to find user records for username'''

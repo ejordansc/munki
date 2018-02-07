@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# Copyright 2009-2017 Greg Neagle.
+# Copyright 2009-2018 Greg Neagle.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -386,7 +386,8 @@ def get_installed_version(item_plist):
                                             'Contents', 'Info.plist')
                     plist = FoundationPlist.readPlist(filepath)
                     return plist.get('CFBundleShortVersionString', 'UNKNOWN')
-                except FoundationPlist.NSPropertyListSerializationException:
+                except (KeyError,
+                        FoundationPlist.NSPropertyListSerializationException):
                     # that didn't work, fall through to the slow way
                     appinfo = []
                     appdata = info.app_data()
